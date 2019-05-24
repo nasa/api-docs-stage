@@ -1,0 +1,1692 @@
+[
+  {
+    "id": "1",
+    "name": "APOD",
+    "description": "a cool api!",
+    "tags": [
+      "tags1",
+      "tags2",
+      "tags3",
+      "tags4"
+    ],
+    "configurations": {
+      "overview": {
+        "poc_name": "",
+        "poc_email": "",
+        "api_name": "",
+        "backend_protocol": "",
+        "server": "",
+        "frontend_host": "",
+        "backend_host": "",
+        "matching_url_prefixes": [
+          {
+            "frontend_prefix": "",
+            "backend_prefix": ""
+          }
+        ]
+      },
+      "global_request_settings": {
+        "append_query_string_parameters": "",
+        "set_request_headers": "",
+        "http_basic_authentication": "",
+        "https_requirements": "",
+        "api_key_checks": "",
+        "api_key_verification_requirements": "",
+        "required_roles": "",
+        "rate_limit": "",
+        "default_response_headers": "",
+        "override_response_headers": ""
+      },
+      "sub_url_request_settings": [
+        {
+          "http_method": "",
+          "regex": "",
+          "https_requirements": "",
+          "api_key_checks": "",
+          "api_key_verification_requirements": "",
+          "required_roles": "",
+          "override_required_roles_from_global_request_settings": "",
+          "rate_limit": "",
+          "default_response_headers": "",
+          "override_response_headers": ""
+        }
+      ],
+      "advanced_requests_rewriting": [
+        {
+          "matcher_type": "",
+          "http_method": "",
+          "frontend_matcher": "",
+          "backend_replacement": ""
+        }
+      ],
+      "advanced_settings": {
+        "balance_algorithm": "",
+        "json_template": "",
+        "xml_template": "",
+        "csv_template": "",
+        "common_all_errors": "",
+        "api_key_missing": "",
+        "api_key_invalid": "",
+        "api_key_disabled": "",
+        "api_key_unauthorized": "",
+        "over_rate_limit": "",
+        "https_required": ""
+      }
+    },
+    "swagger_data": {
+      "swagger": "2.0",
+      "info": {
+        "description": "This endpoint structures the APOD imagery and associated metadata so that it can be repurposed for other applications. In addition, if the concept_tags parameter is set to True, then keywords derived from the image explanation are returned. These keywords could be used as auto-generated hashtags for twitter or instagram feeds; but generally help with discoverability of relevant imagery",
+        "version": "1.0.0",
+        "title": "APOD",
+        "termsOfService": "",
+        "contact": {
+          "email": "evan.t.yates@nasa.gov"
+        },
+        "license": {
+          "name": "Apache 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+      },
+      "host": "api.nasa.gov",
+      "basePath": "/planetary",
+      "tags": [
+        {
+          "name": "request tag",
+          "description": "An example tag",
+          "externalDocs": {
+            "description": "Here's a link",
+            "url": "https://example.com"
+          }
+        }
+      ],
+      "schemes": [
+        "https",
+        "http"
+      ],
+      "paths": {
+        "/apod": {
+          "get": {
+            "tags": [
+              "request tag"
+            ],
+            "summary": "Returns images",
+            "descriptions": "Returns the picture of the day",
+            "produces": [
+              "application/json"
+            ],
+            "security": [
+              {
+                "api_key": []
+              }
+            ],
+            "parameters": [
+              {
+                "name": "date",
+                "in": "query",
+                "description": "The date of the APOD image to retrieve",
+                "required": false,
+                "type": "string",
+                "schema": "date"
+              },
+              {
+                "name": "hd",
+                "in": "query",
+                "description": "Retrieve the URL for the high resolution image",
+                "required": false,
+                "type": "boolean"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "successful operation",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "thing": "ok"
+                  }
+                }
+              },
+              "400": {
+                "description": "Date must be between Jun 16, 1995 and Mar 28, 2019."
+              }
+            }
+          }
+        }
+      },
+      "securityDefinitions": {
+        "api_key": {
+          "type": "apiKey",
+          "name": "api_key",
+          "in": "query"
+        }
+      }
+    }
+  },
+  {
+    "description": "an example API",
+    "id": "1",
+    "name": "Petstore",
+    "tags": [
+      "tags1",
+      "tags2",
+      "tags3",
+      "tags4"
+    ],
+    "swagger_data": {
+      "swagger": "2.0",
+      "info": {
+        "description": "This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+        "version": "1.0.0",
+        "title": "Swagger Petstore",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+          "email": "apiteam@swagger.io"
+        },
+        "license": {
+          "name": "Apache 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+      },
+      "host": "petstore.swagger.io",
+      "basePath": "/v2",
+      "tags": [
+        {
+          "name": "pet",
+          "description": "Everything about your Pets",
+          "externalDocs": {
+            "description": "Find out more",
+            "url": "http://swagger.io"
+          }
+        },
+        {
+          "name": "store",
+          "description": "Access to Petstore orders"
+        },
+        {
+          "name": "user",
+          "description": "Operations about user",
+          "externalDocs": {
+            "description": "Find out more about our store",
+            "url": "http://swagger.io"
+          }
+        }
+      ],
+      "schemes": [
+        "https",
+        "http"
+      ],
+      "paths": {
+        "/pet": {
+          "post": {
+            "tags": [
+              "pet"
+            ],
+            "summary": "Add a new pet to the store",
+            "description": "",
+            "operationId": "addPet",
+            "consumes": [
+              "application/json",
+              "application/xml"
+            ],
+            "produces": [
+              "application/xml",
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "in": "body",
+                "name": "body",
+                "description": "Pet object that needs to be added to the store",
+                "required": true,
+                "schema": {
+                  "$ref": "#/definitions/Pet"
+                }
+              }
+            ],
+            "responses": {
+              "405": {
+                "description": "Invalid input"
+              }
+            },
+            "security": [
+              {
+                "petstore_auth": [
+                  "write:pets",
+                  "read:pets"
+                ]
+              }
+            ]
+          },
+          "put": {
+            "tags": [
+              "pet"
+            ],
+            "summary": "Update an existing pet",
+            "description": "",
+            "operationId": "updatePet",
+            "consumes": [
+              "application/json",
+              "application/xml"
+            ],
+            "produces": [
+              "application/xml",
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "in": "body",
+                "name": "body",
+                "description": "Pet object that needs to be added to the store",
+                "required": true,
+                "schema": {
+                  "$ref": "#/definitions/Pet"
+                }
+              }
+            ],
+            "responses": {
+              "400": {
+                "description": "Invalid ID supplied"
+              },
+              "404": {
+                "description": "Pet not found"
+              },
+              "405": {
+                "description": "Validation exception"
+              }
+            },
+            "security": [
+              {
+                "petstore_auth": [
+                  "write:pets",
+                  "read:pets"
+                ]
+              }
+            ]
+          }
+        },
+        "/pet/findByStatus": {
+          "get": {
+            "tags": [
+              "pet"
+            ],
+            "summary": "Finds Pets by status",
+            "description": "Multiple status values can be provided with comma separated strings",
+            "operationId": "findPetsByStatus",
+            "produces": [
+              "application/xml",
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "name": "status",
+                "in": "query",
+                "description": "Status values that need to be considered for filter",
+                "required": true,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "available",
+                    "pending",
+                    "sold"
+                  ],
+                  "default": "available"
+                },
+                "collectionFormat": "multi"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "successful operation",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Pet"
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid status value"
+              }
+            },
+            "security": [
+              {
+                "petstore_auth": [
+                  "write:pets",
+                  "read:pets"
+                ]
+              }
+            ]
+          }
+        },
+        "/pet/findByTags": {
+          "get": {
+            "tags": [
+              "pet"
+            ],
+            "summary": "Finds Pets by tags",
+            "description": "Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.",
+            "operationId": "findPetsByTags",
+            "produces": [
+              "application/xml",
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "name": "tags",
+                "in": "query",
+                "description": "Tags to filter by",
+                "required": true,
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "collectionFormat": "multi"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "successful operation",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Pet"
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid tag value"
+              }
+            },
+            "security": [
+              {
+                "petstore_auth": [
+                  "write:pets",
+                  "read:pets"
+                ]
+              }
+            ],
+            "deprecated": true
+          }
+        },
+        "/pet/{petId}": {
+          "get": {
+            "tags": [
+              "pet"
+            ],
+            "summary": "Find pet by ID",
+            "description": "Returns a single pet",
+            "operationId": "getPetById",
+            "produces": [
+              "application/xml",
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "name": "petId",
+                "in": "path",
+                "description": "ID of pet to return",
+                "required": true,
+                "type": "integer",
+                "format": "int64"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "successful operation",
+                "schema": {
+                  "$ref": "#/definitions/Pet"
+                }
+              },
+              "400": {
+                "description": "Invalid ID supplied"
+              },
+              "404": {
+                "description": "Pet not found"
+              }
+            },
+            "security": [
+              {
+                "api_key": []
+              }
+            ]
+          },
+          "post": {
+            "tags": [
+              "pet"
+            ],
+            "summary": "Updates a pet in the store with form data",
+            "description": "",
+            "operationId": "updatePetWithForm",
+            "consumes": [
+              "application/x-www-form-urlencoded"
+            ],
+            "produces": [
+              "application/xml",
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "name": "petId",
+                "in": "path",
+                "description": "ID of pet that needs to be updated",
+                "required": true,
+                "type": "integer",
+                "format": "int64"
+              },
+              {
+                "name": "name",
+                "in": "formData",
+                "description": "Updated name of the pet",
+                "required": false,
+                "type": "string"
+              },
+              {
+                "name": "status",
+                "in": "formData",
+                "description": "Updated status of the pet",
+                "required": false,
+                "type": "string"
+              }
+            ],
+            "responses": {
+              "405": {
+                "description": "Invalid input"
+              }
+            },
+            "security": [
+              {
+                "petstore_auth": [
+                  "write:pets",
+                  "read:pets"
+                ]
+              }
+            ]
+          },
+          "delete": {
+            "tags": [
+              "pet"
+            ],
+            "summary": "Deletes a pet",
+            "description": "",
+            "operationId": "deletePet",
+            "produces": [
+              "application/xml",
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "name": "api_key",
+                "in": "header",
+                "required": false,
+                "type": "string"
+              },
+              {
+                "name": "petId",
+                "in": "path",
+                "description": "Pet id to delete",
+                "required": true,
+                "type": "integer",
+                "format": "int64"
+              }
+            ],
+            "responses": {
+              "400": {
+                "description": "Invalid ID supplied"
+              },
+              "404": {
+                "description": "Pet not found"
+              }
+            },
+            "security": [
+              {
+                "petstore_auth": [
+                  "write:pets",
+                  "read:pets"
+                ]
+              }
+            ]
+          }
+        },
+        "/pet/{petId}/uploadImage": {
+          "post": {
+            "tags": [
+              "pet"
+            ],
+            "summary": "uploads an image",
+            "description": "",
+            "operationId": "uploadFile",
+            "consumes": [
+              "multipart/form-data"
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "name": "petId",
+                "in": "path",
+                "description": "ID of pet to update",
+                "required": true,
+                "type": "integer",
+                "format": "int64"
+              },
+              {
+                "name": "additionalMetadata",
+                "in": "formData",
+                "description": "Additional data to pass to server",
+                "required": false,
+                "type": "string"
+              },
+              {
+                "name": "file",
+                "in": "formData",
+                "description": "file to upload",
+                "required": false,
+                "type": "file"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "successful operation",
+                "schema": {
+                  "$ref": "#/definitions/ApiResponse"
+                }
+              }
+            },
+            "security": [
+              {
+                "petstore_auth": [
+                  "write:pets",
+                  "read:pets"
+                ]
+              }
+            ]
+          }
+        },
+        "/store/inventory": {
+          "get": {
+            "tags": [
+              "store"
+            ],
+            "summary": "Returns pet inventories by status",
+            "description": "Returns a map of status codes to quantities",
+            "operationId": "getInventory",
+            "produces": [
+              "application/json"
+            ],
+            "parameters": [],
+            "responses": {
+              "200": {
+                "description": "successful operation",
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              }
+            },
+            "security": [
+              {
+                "api_key": []
+              }
+            ]
+          }
+        },
+        "/store/order": {
+          "post": {
+            "tags": [
+              "store"
+            ],
+            "summary": "Place an order for a pet",
+            "description": "",
+            "operationId": "placeOrder",
+            "produces": [
+              "application/xml",
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "in": "body",
+                "name": "body",
+                "description": "order placed for purchasing the pet",
+                "required": true,
+                "schema": {
+                  "$ref": "#/definitions/Order"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "successful operation",
+                "schema": {
+                  "$ref": "#/definitions/Order"
+                }
+              },
+              "400": {
+                "description": "Invalid Order"
+              }
+            }
+          }
+        },
+        "/store/order/{orderId}": {
+          "get": {
+            "tags": [
+              "store"
+            ],
+            "summary": "Find purchase order by ID",
+            "description": "For valid response try integer IDs with value >= 1 and <= 10. Other values will generated exceptions",
+            "operationId": "getOrderById",
+            "produces": [
+              "application/xml",
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "name": "orderId",
+                "in": "path",
+                "description": "ID of pet that needs to be fetched",
+                "required": true,
+                "type": "integer",
+                "maximum": 10.0,
+                "minimum": 1.0,
+                "format": "int64"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "successful operation",
+                "schema": {
+                  "$ref": "#/definitions/Order"
+                }
+              },
+              "400": {
+                "description": "Invalid ID supplied"
+              },
+              "404": {
+                "description": "Order not found"
+              }
+            }
+          },
+          "delete": {
+            "tags": [
+              "store"
+            ],
+            "summary": "Delete purchase order by ID",
+            "description": "For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors",
+            "operationId": "deleteOrder",
+            "produces": [
+              "application/xml",
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "name": "orderId",
+                "in": "path",
+                "description": "ID of the order that needs to be deleted",
+                "required": true,
+                "type": "integer",
+                "minimum": 1.0,
+                "format": "int64"
+              }
+            ],
+            "responses": {
+              "400": {
+                "description": "Invalid ID supplied"
+              },
+              "404": {
+                "description": "Order not found"
+              }
+            }
+          }
+        },
+        "/user": {
+          "post": {
+            "tags": [
+              "user"
+            ],
+            "summary": "Create user",
+            "description": "This can only be done by the logged in user.",
+            "operationId": "createUser",
+            "produces": [
+              "application/xml",
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "in": "body",
+                "name": "body",
+                "description": "Created user object",
+                "required": true,
+                "schema": {
+                  "$ref": "#/definitions/User"
+                }
+              }
+            ],
+            "responses": {
+              "default": {
+                "description": "successful operation"
+              }
+            }
+          }
+        },
+        "/user/createWithArray": {
+          "post": {
+            "tags": [
+              "user"
+            ],
+            "summary": "Creates list of users with given input array",
+            "description": "",
+            "operationId": "createUsersWithArrayInput",
+            "produces": [
+              "application/xml",
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "in": "body",
+                "name": "body",
+                "description": "List of user object",
+                "required": true,
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/User"
+                  }
+                }
+              }
+            ],
+            "responses": {
+              "default": {
+                "description": "successful operation"
+              }
+            }
+          }
+        },
+        "/user/createWithList": {
+          "post": {
+            "tags": [
+              "user"
+            ],
+            "summary": "Creates list of users with given input array",
+            "description": "",
+            "operationId": "createUsersWithListInput",
+            "produces": [
+              "application/xml",
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "in": "body",
+                "name": "body",
+                "description": "List of user object",
+                "required": true,
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/User"
+                  }
+                }
+              }
+            ],
+            "responses": {
+              "default": {
+                "description": "successful operation"
+              }
+            }
+          }
+        },
+        "/user/login": {
+          "get": {
+            "tags": [
+              "user"
+            ],
+            "summary": "Logs user into the system",
+            "description": "",
+            "operationId": "loginUser",
+            "produces": [
+              "application/xml",
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "name": "username",
+                "in": "query",
+                "description": "The user name for login",
+                "required": true,
+                "type": "string"
+              },
+              {
+                "name": "password",
+                "in": "query",
+                "description": "The password for login in clear text",
+                "required": true,
+                "type": "string"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "successful operation",
+                "schema": {
+                  "type": "string"
+                },
+                "headers": {
+                  "X-Rate-Limit": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "calls per hour allowed by the user"
+                  },
+                  "X-Expires-After": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "date in UTC when token expires"
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid username/password supplied"
+              }
+            }
+          }
+        },
+        "/user/logout": {
+          "get": {
+            "tags": [
+              "user"
+            ],
+            "summary": "Logs out current logged in user session",
+            "description": "",
+            "operationId": "logoutUser",
+            "produces": [
+              "application/xml",
+              "application/json"
+            ],
+            "parameters": [],
+            "responses": {
+              "default": {
+                "description": "successful operation"
+              }
+            }
+          }
+        },
+        "/user/{username}": {
+          "get": {
+            "tags": [
+              "user"
+            ],
+            "summary": "Get user by user name",
+            "description": "",
+            "operationId": "getUserByName",
+            "produces": [
+              "application/xml",
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "name": "username",
+                "in": "path",
+                "description": "The name that needs to be fetched. Use user1 for testing. ",
+                "required": true,
+                "type": "string"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "successful operation",
+                "schema": {
+                  "$ref": "#/definitions/User"
+                }
+              },
+              "400": {
+                "description": "Invalid username supplied"
+              },
+              "404": {
+                "description": "User not found"
+              }
+            }
+          },
+          "put": {
+            "tags": [
+              "user"
+            ],
+            "summary": "Updated user",
+            "description": "This can only be done by the logged in user.",
+            "operationId": "updateUser",
+            "produces": [
+              "application/xml",
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "name": "username",
+                "in": "path",
+                "description": "name that need to be updated",
+                "required": true,
+                "type": "string"
+              },
+              {
+                "in": "body",
+                "name": "body",
+                "description": "Updated user object",
+                "required": true,
+                "schema": {
+                  "$ref": "#/definitions/User"
+                }
+              }
+            ],
+            "responses": {
+              "400": {
+                "description": "Invalid user supplied"
+              },
+              "404": {
+                "description": "User not found"
+              }
+            }
+          },
+          "delete": {
+            "tags": [
+              "user"
+            ],
+            "summary": "Delete user",
+            "description": "This can only be done by the logged in user.",
+            "operationId": "deleteUser",
+            "produces": [
+              "application/xml",
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "name": "username",
+                "in": "path",
+                "description": "The name that needs to be deleted",
+                "required": true,
+                "type": "string"
+              }
+            ],
+            "responses": {
+              "400": {
+                "description": "Invalid username supplied"
+              },
+              "404": {
+                "description": "User not found"
+              }
+            }
+          }
+        }
+      },
+      "securityDefinitions": {
+        "petstore_auth": {
+          "type": "oauth2",
+          "authorizationUrl": "https://petstore.swagger.io/oauth/authorize",
+          "flow": "implicit",
+          "scopes": {
+            "write:pets": "modify pets in your account",
+            "read:pets": "read your pets"
+          }
+        },
+        "api_key": {
+          "type": "apiKey",
+          "name": "api_key",
+          "in": "header"
+        }
+      },
+      "definitions": {
+        "Order": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "petId": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "quantity": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "shipDate": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "status": {
+              "type": "string",
+              "description": "Order Status",
+              "enum": [
+                "placed",
+                "approved",
+                "delivered"
+              ]
+            },
+            "complete": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          "xml": {
+            "name": "Order"
+          }
+        },
+        "User": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "username": {
+              "type": "string"
+            },
+            "firstName": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "password": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "userStatus": {
+              "type": "integer",
+              "format": "int32",
+              "description": "User Status"
+            }
+          },
+          "xml": {
+            "name": "User"
+          }
+        },
+        "Category": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "xml": {
+            "name": "Category"
+          }
+        },
+        "Tag": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "xml": {
+            "name": "Tag"
+          }
+        },
+        "Pet": {
+          "type": "object",
+          "required": [
+            "name",
+            "photoUrls"
+          ],
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "category": {
+              "$ref": "#/definitions/Category"
+            },
+            "name": {
+              "type": "string",
+              "example": "doggie"
+            },
+            "photoUrls": {
+              "type": "array",
+              "xml": {
+                "name": "photoUrl",
+                "wrapped": true
+              },
+              "items": {
+                "type": "string"
+              }
+            },
+            "tags": {
+              "type": "array",
+              "xml": {
+                "name": "tag",
+                "wrapped": true
+              },
+              "items": {
+                "$ref": "#/definitions/Tag"
+              }
+            },
+            "status": {
+              "type": "string",
+              "description": "pet status in the store",
+              "enum": [
+                "available",
+                "pending",
+                "sold"
+              ]
+            }
+          },
+          "xml": {
+            "name": "Pet"
+          }
+        },
+        "ApiResponse": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "type": {
+              "type": "string"
+            },
+            "message": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+      }
+    }
+  },
+  {
+    "id": "1",
+    "name": "Techport",
+    "description": "another cool api!",
+    "tags": [
+      "tags1",
+      "tags2",
+      "tags3",
+      "tags4"
+    ],
+    "swagger_data": {
+      "swagger": "2.0",
+      "info": {
+        "version": "3.4.0",
+        "title": "TechPort",
+        "description": "TechPort RESTful API",
+        "contact": {
+          "name": "TechPort Team",
+          "email": "hq-techport@mail.nasa.gov",
+          "url": "https://techport.nasa.gov"
+        }
+      },
+      "host": "techport.nasa.gov",
+      "basePath": "/api",
+      "schemes": [
+        "http",
+        "https"
+      ],
+      "produces": [
+        "application/xml",
+        "application/json"
+      ],
+      "paths": {
+        "/api": {
+          "get": {
+            "description": "Returns the swagger specification for the API.",
+            "responses": {
+              "200": {
+                "description": "Successful response"
+              },
+              "default": {
+                "description": "Object not found."
+              }
+            }
+          }
+        },
+        "/api/projects{.format}": {
+          "get": {
+            "description": "Returns a list of available technology project IDs.",
+            "parameters": [
+              {
+                "name": "updatedSince",
+                "in": "query",
+                "description": "ISO 8601 full-date in the format YYYY-MM-DD. Filters the list of available ID values by their lastUpdated parameter.",
+                "required": true,
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "name": "format",
+                "in": "path",
+                "description": "The response type desired.",
+                "required": false,
+                "type": "string",
+                "default": "json",
+                "enum": [
+                  "json",
+                  "xml"
+                ]
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Successful response",
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64"
+                    },
+                    "lastUpdated": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "default": {
+                "description": "Object not found."
+              }
+            }
+          }
+        },
+        "/api/projects/{id}{.format}": {
+          "get": {
+            "description": "Returns information about a specific technology project.",
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "description": "ID of project to fetch",
+                "required": true,
+                "type": "integer",
+                "format": "int64"
+              },
+              {
+                "name": "format",
+                "in": "path",
+                "description": "The response type desired.",
+                "required": false,
+                "type": "string",
+                "default": "xml",
+                "enum": [
+                  "json",
+                  "xml"
+                ]
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Successful response",
+                "schema": {
+                  "$ref": "#/definitions/project"
+                }
+              },
+              "default": {
+                "description": "Object not found."
+              }
+            }
+          }
+        }
+      },
+      "definitions": {
+        "project": {
+          "type": "object",
+          "description": "Top-level TechPort object representing a NASA technology project and its associated data.",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int64",
+              "description": "Unique identifier for the project."
+            },
+            "lastUpdated": {
+              "type": "string",
+              "format": "date",
+              "description": "ISO 8601 full-date in the format YYYY-MM-DD describing the last time this project was updated."
+            },
+            "title": {
+              "type": "string",
+              "description": "Title of the project."
+            },
+            "acronym": {
+              "type": "string",
+              "description": "Abbreviated name of the project."
+            },
+            "status": {
+              "type": "string",
+              "description": "Indicates whether the project is currently active, completed, or canceled."
+            },
+            "description": {
+              "type": "string",
+              "description": "A detailed description of the project."
+            },
+            "benefits": {
+              "type": "string",
+              "description": "Describes the benefits offered to NASA funded and planned missions, unfunded or planned missions, commercial space industry, and to the nation."
+            },
+            "startDate": {
+              "type": "string",
+              "description": "The month and year the project was authorized to proceed."
+            },
+            "endDate": {
+              "type": "string",
+              "description": "The month and year the project is expected to complete its work."
+            },
+            "technologyMaturityStart": {
+              "type": "string",
+              "description": "The technology maturity (technology readiness level) of the project at its beginning."
+            },
+            "technologyMaturityCurrent": {
+              "type": "string",
+              "description": "The current technology maturity (technology readiness level) of the project."
+            },
+            "technologyMaturityEnd": {
+              "type": "string",
+              "description": "The estimated technology maturity (technology readiness level) of the project at its end."
+            },
+            "primaryTas": {
+              "type": "array",
+              "description": "List of primary technolgy areas (from the NASA Technology Roadmap) associated with the project.",
+              "items": {
+                "$ref": "#/definitions/technologyArea"
+              }
+            },
+            "additionalTas": {
+              "type": "array",
+              "description": "List of additional and cross-cutting technology areas associated with the project.",
+              "items": {
+                "$ref": "#/definitions/technologyArea"
+              }
+            },
+            "destinations": {
+              "type": "array",
+              "description": "List of the NASA destinations the technology on this project helps achieve.",
+              "items": {
+                "$ref": "#/definitions/destination"
+              }
+            },
+            "supportedMissionType": {
+              "type": "string",
+              "description": "The supported mission type (Projected Mission, Planned Mission, or Pull)."
+            },
+            "responsibleProgram": {
+              "type": "string",
+              "description": "The NASA program that is the primary funding source for this project."
+            },
+            "responsibleMissionDirectorateOrOffice": {
+              "type": "string",
+              "description": "The NASA Mission Directorate or Office that is the primary funding source for this project."
+            },
+            "leadOrganization": {
+              "type": "object",
+              "description": "The lead NASA Center / Facility or external organization that is conducting the majority of the work.",
+              "$ref": "#/definitions/organization"
+            },
+            "supportingOrganizations": {
+              "type": "array",
+              "description": "The supporting organizations for this project that are conducting work on the project.",
+              "items": {
+                "$ref": "#/definitions/organization"
+              }
+            },
+            "coFundingPartners": {
+              "type": "array",
+              "description": "Other government agencies, NASA Mission Directoratres, universities, or commercial entities performing contributing resources to this project.",
+              "items": {
+                "$ref": "#/definitions/organization"
+              }
+            },
+            "workLocations": {
+              "type": "array",
+              "description": "States and territories with people performing work on this project.",
+              "items": {
+                "$ref": "#/definitions/workLocation"
+              }
+            },
+            "programDirectors": {
+              "type": "array",
+              "description": "Names of the Program Directors responsible for the management of this project.",
+              "items": {
+                "$ref": "#/definitions/programDirector"
+              }
+            },
+            "programManagers": {
+              "type": "array",
+              "description": "Names of the Program Managers responsible for the management of this project.",
+              "items": {
+                "$ref": "#/definitions/programManager"
+              }
+            },
+            "projectManagers": {
+              "type": "array",
+              "description": "Names of the Project Managers responsible for the management of this project.",
+              "items": {
+                "$ref": "#/definitions/projectManager"
+              }
+            },
+            "principalInvestigators": {
+              "type": "array",
+              "description": "Names of the Principal Investigators who are the lead scientists or engineers for this project.",
+              "items": {
+                "$ref": "#/definitions/principalInvestigator"
+              }
+            },
+            "coInvestigators": {
+              "type": "array",
+              "description": "Names of the additional investigators who are scientists or engineers for this project.",
+              "items": {
+                "$ref": "#/definitions/coInvestigator"
+              }
+            },
+            "website": {
+              "type": "string",
+              "description": "The URL for the associated website."
+            },
+            "libraryItems": {
+              "type": "array",
+              "description": "List of library items in the project library.",
+              "items": {
+                "$ref": "#/definitions/libraryItem"
+              }
+            },
+            "closeoutSummary": {
+              "type": "string",
+              "description": "The project closeout summary excerpt."
+            },
+            "closeoutDocuments": {
+              "type": "array",
+              "description": "List of document files or links to the project final report closeout documentation.",
+              "items": {
+                "$ref": "#/definitions/closeoutDocument"
+              }
+            }
+          }
+        },
+        "libraryItem": {
+          "type": "object",
+          "description": "Represents a specific library item that is part of this project.",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int64",
+              "description": "Unique identifier for the library item."
+            },
+            "title": {
+              "type": "string",
+              "description": "Title of the library item"
+            },
+            "type": {
+              "type": "string",
+              "description": "Identifies the type of library item, e.g. Image"
+            },
+            "files": {
+              "type": "array",
+              "description": "List of files associated with the library item.",
+              "items": {
+                "$ref": "#/definitions/file"
+              }
+            },
+            "description": {
+              "type": "string",
+              "description": "Description of the library item."
+            },
+            "externalUrl": {
+              "type": "string",
+              "description": "External URL for the library item."
+            },
+            "completionDate": {
+              "type": "string",
+              "description": "Date the library item was completed."
+            },
+            "publishedBy": {
+              "type": "string",
+              "description": "Publisher of the library item."
+            },
+            "publishedDate": {
+              "type": "string",
+              "description": "Date the library item was published."
+            }
+          }
+        },
+        "file": {
+          "type": "object",
+          "description": "Represents a file associated with a library item.",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int64",
+              "description": "Unique identifier for the file."
+            },
+            "url": {
+              "type": "string",
+              "description": "The TechPort URL at which the file is accessible for download."
+            },
+            "size": {
+              "type": "string",
+              "description": "The size of the file in bytes."
+            }
+          }
+        },
+        "destination": {
+          "type": "string",
+          "description": "Represents a destination towards which the technology on this project helps advance the Agency goals."
+        },
+        "closeoutDocument": {
+          "type": "string",
+          "description": "Represents a file hyperlink or external hyperlink to a project closeout final report artifact."
+        },
+        "technologyArea": {
+          "type": "object",
+          "description": "The Technology Area for a given technology that corresponds to the NASA Technology Roadmap.",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int64",
+              "description": "Unique identifier for the Technology Area."
+            },
+            "code": {
+              "type": "string",
+              "description": "The code identifier for the Technology Area."
+            },
+            "name": {
+              "type": "string",
+              "description": "The name of the Technology Area."
+            }
+          }
+        },
+        "organization": {
+          "type": "object",
+          "description": "A NASA center/facility associated with an project.",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "The name of the organization."
+            },
+            "acronym": {
+              "type": "string",
+              "description": "The acronym of the organization."
+            },
+            "city": {
+              "type": "string",
+              "description": "The city in which the organization is located."
+            },
+            "state": {
+              "type": "string",
+              "description": "The state in which the organization is located."
+            }
+          }
+        },
+        "workLocation": {
+          "type": "string",
+          "description": "A state/territory where work on this project is performed."
+        },
+        "programDirector": {
+          "type": "string",
+          "description": "The name of a Program Director responsible for management of an project."
+        },
+        "programManager": {
+          "type": "string",
+          "description": "The name of a Program Manager responsible for management of an project."
+        },
+        "projectManager": {
+          "type": "string",
+          "description": "The name of a Project Manager responsible for management of an project."
+        },
+        "principalInvestigator": {
+          "type": "string",
+          "description": "The name of the Principal Investigator who is a lead scientist or engineer for an project."
+        },
+        "coInvestigator": {
+          "type": "string",
+          "description": "The name of an investigator who is a scientist or engineer for an project."
+        }
+      }
+    }
+  },
+  {
+    "id": "1",
+    "name": "EPIC",
+    "description": "another cool api!",
+    "tags": [
+      "tags1",
+      "tags2",
+      "tags3",
+      "tags4"
+    ]
+  },
+  {
+    "id": "1",
+    "name": "EONET",
+    "description": "another cool api!",
+    "tags": [
+      "tags1",
+      "tags2",
+      "tags3",
+      "tags4"
+    ]
+  },
+  {
+    "id": "1",
+    "name": "EPIC",
+    "description": "another cool api!",
+    "tags": [
+      "tags1",
+      "tags2",
+      "tags3",
+      "tags4"
+    ]
+  }
+]
