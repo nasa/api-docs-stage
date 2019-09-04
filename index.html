@@ -1,4 +1,5 @@
 <!doctype html>
+<base href="#">
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -9,7 +10,287 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="styles.08b7a45b5714ef697731.css"></head>
+<!--New NASA CSS--> <link rel="stylesheet" href="assets/css/nasawds.min.css">
 <body>
-  <app-root></app-root>
-<script type="text/javascript" src="runtime.26209474bfa8dc87a77c.js"></script><script type="text/javascript" src="es2015-polyfills.c5dd28b362270c767b34.js" nomodule></script><script type="text/javascript" src="polyfills.08ca0cd9c4462e517b8f.js"></script><script type="text/javascript" src="main.bf933cfaf70ce9968a1c.js"></script></body>
+<!--New NASA JS--> <script src="assets/js/nasawds.min.js"></script>
+<a class="usa-skipnav" href="#main-content">Skip to main content</a>
+  
+
+<section class="usa-banner">
+  <div class="usa-accordion">
+    <header class="usa-banner-header">
+      <div class="usa-grid usa-banner-inner">
+      <img src="/assets/img/favicons/favicon-usa-57.png" alt="U.S. flag">
+      <p>An official website of the United States government</p>
+      <button class="usa-accordion-button usa-banner-button"
+        aria-expanded="false" aria-controls="gov-banner">
+        <span class="usa-banner-button-text">Here's how you know</span>
+      </button>
+      </div>
+    </header>
+    <div class="usa-banner-content usa-grid usa-accordion-content" id="gov-banner">
+      <div class="usa-banner-guidance-gov usa-width-one-half">
+        <img class="usa-banner-icon usa-media_block-img" src="/assets/img/icon-dot-gov.svg" alt="Dot gov">
+        <div class="usa-media_block-body">
+          <p>
+            <strong>The .gov means it’s official.</strong>
+            <br>
+            Federal government websites often end in .gov or .mil. Before sharing sensitive information, make sure you’re on a federal government site.
+          </p>
+        </div>
+      </div>
+      <div class="usa-banner-guidance-ssl usa-width-one-half">
+        <img class="usa-banner-icon usa-media_block-img" src="/assets/img/icon-https.svg" alt="Https">
+        <div class="usa-media_block-body">
+          <p>
+            <strong>The site is secure.</strong>
+            <br>
+            The <strong>https://</strong> ensures that you are connecting to the official website and that any information you provide is encrypted and transmitted securely.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  
+
+<header class="usa-header usa-header-basic" role="banner">
+  <div class="usa-nav-container">
+    <div class="usa-navbar">
+  <div class="usa-logo" id="basic-logo">
+    <em class="usa-logo-text">
+      <a href="javascript:void(0)"
+        title="Home"
+        aria-label="Home">
+        {APIs}
+      </a>
+    </em>
+  </div>
+  <button class="usa-menu-btn">...</button>
+</div>
+
+    <nav role="navigation" class="usa-nav">
+      
+      <button class="usa-nav-close">
+  <img src="/assets/img/close.svg" alt="close">
+</button>
+<ul class="usa-nav-primary usa-accordion">
+    <li><a class="usa-nav-link" href="javascript:void(0)">
+        <span>Overview</span>
+      </a></li>
+    <li><a class="usa-nav-link" href="javascript:void(0)">
+        <span>Generate API Key</span>
+      </a></li>
+    <li><a class="usa-nav-link" href="javascript:void(0)">
+       <span>Recover API Key</span>
+      </a></li>
+    <li><a class="usa-nav-link" href="javascript:void(0)">
+       <span>Browse APIs</span>
+    </a></li>
+  <li><button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="basic-nav-section-one">
+      <span>Section title</span>
+    </button>
+    <ul id="basic-nav-section-one" class="usa-nav-submenu"><li>
+              <a href="#">Subsection title</a>
+            </li><li>
+              <a href="#">Subsection title</a>
+            </li><li>
+              <a href="#">Subsection title</a>
+            </li></ul>
+          </li>
+        </ul>
+      <form class="usa-search usa-search-small ">
+  <div role="search">
+    <label class="usa-sr-only" for="basic-search-field-small">Search small</label>
+    <input id="basic-search-field-small" type="search" name="search">
+    <button type="submit">
+      <span class="usa-sr-only">Search</span>
+    </button>
+  </div>
+</form>
+
+      
+    </nav>
+  </div>
+</header>
+<div class="usa-overlay"></div>
+
+<main id="main-content">
+    <section class="usa-hero">
+    <div class="usa-grid">
+      <div class="usa-hero-callout usa-section-dark">
+        <h2>
+          { NASA APIs }
+        </h2>
+  
+        
+        <p>Welcome to the NASA API portal. The objective of this site is to make NASA data, 
+          including imagery, eminently accessible to application developers. 
+          The api.nasa.gov catalog is growing.</p>
+        
+  
+        
+        <a class="usa-button" href="javascript:void(0)">Get Started</a>
+        <a class="usa-button" href="javascript:void(0)">Brrowse APIs</a>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="usa-section">
+      <div class="usa-grid">
+        <h2>API Key Sign Up</h2>
+        <p class="usa-font-lead">Sign up for an application programming interface (API) key to access and use web services available on the Data.gov developer network.</p>
+        <form> 
+            <label for="input-type-text">First Name</label>
+            <input id="input-type-text" name="input-type-text" type="text">
+
+            <label for="input-type-text">Last Name</label>
+            <input id="input-type-text" name="input-type-text" type="text">
+          
+            <label for="input-focus">Email</label>
+            <input class="usa-focus" id="input-focus" name="input-focus" type="text">
+
+            <label for="input-type-textarea">How will you use the APIs?<br>(optional)</label>
+            <textarea id="input-type-textarea" name="input-type-textarea"></textarea>
+          </form>
+        <a class="usa-button usa-button-big" href="#">Submit</a>
+      </div>
+    </section>
+
+  <section class="usa-section-dark">
+    <div class="usa-grid" style = "padding-top:3rem; padding-bottom: 3rem;">
+      <h2> API Key Recovery</h2>
+      <p class="usa-font-lead">Please <a href = "#">contact</a> us for help recovering an old API key</p>
+    </div>
+  </section>
+
+  <section class="usa-section">
+      <div class="usa-grid">
+          <h2> Browse APIs</h2>
+          <div class="usa-width">
+            <div role="search">
+              <form class="usa-search usa-search-big">
+                <label class="usa-sr-only" for="search-field-big">Search big</label>
+                <input id="search-field-big" type="search" name="search">
+                <button type="submit">
+                  <span class="usa-search-submit-text">Search</span>
+                </button>
+              </form>
+            </div>
+          </div>
+          <ul class="usa-accordion-bordered">
+              <li>
+                <button class="usa-accordion-button"
+                  aria-expanded="false"
+                  aria-controls="b-a1">
+                  First Amendment
+                </button>
+                <div id="b-a1" class="usa-accordion-content">
+                  Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.
+                </div>
+              </li><li>
+                <button class="usa-accordion-button"
+                  aria-expanded="false"
+                  aria-controls="b-a2">
+                  Second Amendment
+                </button>
+                <div id="b-a2" class="usa-accordion-content">
+                  A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.
+                </div>
+              </li><li>
+                <button class="usa-accordion-button"
+                  aria-expanded="false"
+                  aria-controls="b-a3">
+                  Third Amendment
+                </button>
+                <div id="b-a3" class="usa-accordion-content">
+                  No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.
+                </div>
+              </li><li>
+                <button class="usa-accordion-button"
+                  aria-expanded="false"
+                  aria-controls="b-a4">
+                  Fourth Amendment
+                </button>
+                <div id="b-a4" class="usa-accordion-content">
+                  The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.
+                </div>
+              </li><li>
+                <button class="usa-accordion-button"
+                  aria-expanded="false"
+                  aria-controls="b-a5">
+                  Fifth Amendment
+                </button>
+                <div id="b-a5" class="usa-accordion-content">
+                  No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.
+                </div>
+              </li>
+            </ul>
+        </div>
+  </section>
+
+  <footer class="usa-footer usa-footer-medium" role="contentinfo">
+      <div class="usa-footer-primary-section">
+        <div class="usa-grid">
+          <nav class="usa-footer-nav">
+            <ul class="usa-unstyled-list">
+              <li class="usa-width-one-sixth usa-footer-primary-content">
+                <a class="usa-footer-primary-link" href="javascript:void(0);">Primary link</a>
+              </li>
+              <li class="usa-width-one-sixth usa-footer-primary-content">
+                <a class="usa-footer-primary-link" href="javascript:void(0);">Primary link</a>
+              </li>
+              <li class="usa-width-one-sixth usa-footer-primary-content">
+                <a class="usa-footer-primary-link" href="javascript:void(0);">Primary link</a>
+              </li>
+              <li class="usa-width-one-sixth usa-footer-primary-content">
+                <a class="usa-footer-primary-link" href="javascript:void(0);">Primary link</a>
+              </li>
+              <li class="usa-width-one-sixth usa-footer-primary-content">
+                <a class="usa-footer-primary-link" href="javascript:void(0);">Primary link</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    
+      <div class="usa-footer-secondary_section">
+        <div class="usa-grid">
+          <div class="usa-footer-logo usa-width-one-half">
+            <img class="usa-footer-logo-img" src="/assets/img/logo-img.png" alt="">
+            <h3 class="usa-footer-logo-heading">Name of Agency</h3>
+          </div>
+          <div class="usa-footer-contact-links usa-width-one-half">
+            <a class="usa-link-facebook" href="javascript:void(0);">
+              <span>Facebook</span>
+            </a>
+            <a class="usa-link-twitter" href="javascript:void(0);">
+              <span>Twitter</span>
+            </a>
+            <a class="usa-link-youtube" href="javascript:void(0);">
+              <span>YouTube</span>
+            </a>
+            <a class="usa-link-rss" href="javascript:void(0);">
+              <span>RSS</span>
+            </a>
+            <h3 class="usa-footer-contact-heading">Agency Contact Center</h3>
+            <address>
+              <div class="usa-footer-primary-content usa-footer-contact_info">
+                <p>
+                  <a href="tel:1-800-555-5555">(800) CALL-GOVT</a>
+                </p>
+              </div>
+              <div class="usa-footer-primary-content usa-footer-contact_info">
+                <p><a href="mailto:info@agency.gov">info@agency.gov</a></p>
+              </div>
+            </address>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  </main>
 </html>
